@@ -1,53 +1,20 @@
 import 'package:flutter/material.dart';
 
+import 'test_api/list_of_hotels_controller.dart';
+import 'test_api/list_of_hotels_screen.dart';
+
 void main() {
-  runApp(const MyApp());
+  runApp( MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final ListOfHotelsController _listOfHotelsController = ListOfHotelsController();
+   MyApp({super.key});
+
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(20.0),
-            child:
-                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-              const Text("Loing In Now"),
-              const Text("Please loging to continune using app"),
-              const TextField(
-                decoration: InputDecoration(hintText: "Email"),
-              ),
-              const TextField(
-                decoration: InputDecoration(
-                    hintText: "Password",
-                    suffixIcon: Icon(
-                      Icons.visibility_off,
-                    )),
-              ),
-              const Align(
-                alignment: AlignmentDirectional.topEnd,
-                child: Text(
-                  "Forget password ?",
-                ),
-              ),
-              ElevatedButton(
-                  onPressed: () {
-                    print("hello");
-                  },
-                  style:  ElevatedButton.styleFrom(
-                    backgroundColor: Colors.pink,
-                  ),
-                  
-                  child: const Text("login")),
-                  
-            ]),
-          ),
-        ),
-      ),
-    );
+    _listOfHotelsController.getHotels();
+    return  MaterialApp(home: ListOfHotels());
   }
 }
