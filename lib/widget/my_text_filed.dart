@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class MyTextFiled extends StatefulWidget {
-  String? hint;
-  bool hasIcon;
-  MyTextFiled({super.key , this.hint, this.hasIcon = false});
+ final String? hint;
+  final bool hasIcon;
+  const MyTextFiled({super.key , this.hint, this.hasIcon = false});
 
   @override
   State<MyTextFiled> createState() => _MyTextFiledState();

@@ -4,11 +4,11 @@ import 'package:hellow_word/app_constants.dart';
 import '../config.dart';
 
 class MyButton extends StatefulWidget {
-  Function()? onPressed;
-  String? title;
-  Color color;
-  Color textColor;
-  MyButton({
+  final Function()? onPressed;
+  final String? title;
+  final Color color;
+  final Color textColor;
+  const MyButton({
     super.key,
     this.onPressed,
     this.title,
