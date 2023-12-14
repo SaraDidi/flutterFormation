@@ -21,11 +21,14 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Widget inputTextField(String hint, bool hasIcon) {
     return TextField(
+      obscureText: hasIcon,
       decoration: InputDecoration(
         hintText: hint,
+  
         hintStyle:
             const TextStyle(color: Colors.grey, fontWeight: FontWeight.w500),
         enabledBorder: OutlineInputBorder(
+          
           borderSide: BorderSide(color: Colors.grey.withOpacity(0.5)),
         ),
         suffixIcon: hasIcon ? const Icon(Icons.visibility_off) : null,
@@ -103,6 +106,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         style: TextStyle(
                             color: Colors.pink, fontWeight: FontWeight.w500)),
                   ],
+                  
                 ),
               ),
               SizedBox(height: fullHeight(context) * 0.03),
