@@ -2,10 +2,10 @@ import 'dart:convert';
 
 import 'package:get/get.dart';
 
-import 'hotel_model.dart';
+import '../moudles/hotel_model.dart';
 import 'package:http/http.dart' as http;
 
-class ListOfHotelsController extends GetxController {
+class HotelsController extends GetxController {
   var isLoadingHotels = false.obs;
 
   List<Hotel> hotelsList = [];
