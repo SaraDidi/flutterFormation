@@ -1,46 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hellow_word/config.dart';
-import 'package:hellow_word/controller/hotels_controller.dart';
-import 'package:hellow_word/moudles/hotel_model.dart';
+import 'package:hello_word/config.dart';
+import 'package:hello_word/controllers/hotels_controller.dart';
+
+import '../widgets/hotel_card_widget.dart';
 
 class ListOfHotels extends StatelessWidget {
   ListOfHotels({super.key});
   final HotelsController _listOfHotelsController = HotelsController();
 
-  _hotelCart(Hotel hotel) {
-    return ListTile(
-      title: Text(hotel.name),
-      subtitle: Text("Rating : ${hotel.rating}"),
-      leading: Container(
-        height: 60,
-        width: 60,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(30),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.2), // Shadow color
-              spreadRadius: 2, // Spread radius
-              blurRadius: 5, // Blur radius
-              offset: const Offset(0, 3),
-            ),
-          ],
-        ),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(10),
-          child: Image.network(
-            hotel.imageUrl,
-            height: 60,
-            width: 60,
-            fit: BoxFit.cover, // You can adjust the BoxFit as needed
-          ),
-        ),
-      ),
-    );
+  getHotels() async {
+    await _listOfHotelsController.fetchHotels();
   }
 
   @override
   Widget build(BuildContext context) {
+    getHotels();
     return SafeArea(
       child: Scaffold(
         body: SizedBox(
@@ -52,7 +27,8 @@ class ListOfHotels extends StatelessWidget {
                 : ListView.builder(
                     itemCount: _listOfHotelsController.hotelsList.length,
                     itemBuilder: (context, index) {
-                      return _hotelCart(_listOfHotelsController.hotelsList[index]);
+                      return HotelCardWidget(
+                          hotel: _listOfHotelsController.hotelsList[index]);
                     },
                   ),
           ),
