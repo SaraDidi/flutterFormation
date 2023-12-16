@@ -7,7 +7,7 @@ import '../widgets/hotel_card_widget.dart';
 
 class ListOfHotels extends StatelessWidget {
   ListOfHotels({super.key});
-  final HotelsController _listOfHotelsController = HotelsController();
+  final HotelsController _listOfHotelsController = Get.put(HotelsController());
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +20,7 @@ class ListOfHotels extends StatelessWidget {
             () => _listOfHotelsController.isLoadingHotels.value
                 ? const Center(child: CircularProgressIndicator())
                 : ListView.builder(
+                    padding: const EdgeInsets.all(20),
                     itemCount: _listOfHotelsController.hotelsList.length,
                     itemBuilder: (context, index) {
                       return HotelCardWidget(

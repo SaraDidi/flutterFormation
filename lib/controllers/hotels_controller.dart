@@ -22,8 +22,8 @@ class HotelsController extends GetxController {
   Future<void> fetchHotels() async {
     try {
       setIsLoadingHotels(true);
-      final hotels = await apiHotel.fetchHotels();
-      hotelsList = hotels;
+      hotelsList = await apiHotel.fetchHotels();
+
       setIsLoadingHotels(false);
     } catch (e) {
       setIsLoadingHotels(false);

@@ -3,13 +3,14 @@ import 'package:get/get.dart';
 
 import 'screens/list_of_hotels_screen.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
-  MyApp({super.key});
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(home: ListOfHotels());
+    return GetMaterialApp(
+        debugShowCheckedModeBanner: true, home: ListOfHotels());
   }
 }
