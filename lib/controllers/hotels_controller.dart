@@ -4,6 +4,12 @@ import '../models/hotel_model.dart';
 import '../services/api_hotel.dart';
 
 class HotelsController extends GetxController {
+  @override
+  void onInit() {
+    fetchHotels();
+    super.onInit();
+  }
+
   var isLoadingHotels = false.obs;
   final ApiHotel apiHotel = ApiHotel();
 

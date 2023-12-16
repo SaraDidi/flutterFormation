@@ -9,13 +9,8 @@ class ListOfHotels extends StatelessWidget {
   ListOfHotels({super.key});
   final HotelsController _listOfHotelsController = HotelsController();
 
-  getHotels() async {
-    await _listOfHotelsController.fetchHotels();
-  }
-
   @override
   Widget build(BuildContext context) {
-    getHotels();
     return SafeArea(
       child: Scaffold(
         body: SizedBox(
